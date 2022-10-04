@@ -12,11 +12,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter> 
       <Routes>
-        <Route exact path="/" element={<App />} >
-          <Route path="home" element={<LandingPage />} />
-          <Route path="pokemonCard" element={<PokemonCard />} />
-          <Route path="pokemonList" element={<PokemonList />} />
-        </Route>
+        <Route exact path="/" element={<App />} />
+          {/* these are nested within "/" App */}
+          <Route path="/home" element={<LandingPage />} />
+          <Route path="/pokemonCard" element={<PokemonCard />} />
+          <Route path="/pokemonList" element={<PokemonList />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
