@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './html/index.html';
-import PokemonCard from './pokemonCard';
-import LandingPage from './landingPage';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './components/landingPage';
+import PokemonCard from './components/pokemonCard';
+import PokemonList from './components/pokemonList';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <LandingPage />
-    <PokemonCard />
+    <BrowserRouter> 
+      <Routes>
+        <Route exact path="/" element={<App />} >
+          <Route path="home" element={<LandingPage />} />
+          <Route path="pokemonCard" element={<PokemonCard />} />
+          <Route path="pokemonList" element={<PokemonList />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -17,4 +26,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-console.log('test');
