@@ -1,11 +1,12 @@
 import React from 'react';
-import '../src/css/pokemonCard.css';
-// import Progress-Bar from './progress-bar';
+import '../css/pokemonCard.css';
+// import ProgressBar from './progress-bar';
 
-class PokemonCard extends React.Component {
-  render () {
+const PokemonCard = () => {
+  // render () {
     return (
       <div> 
+        <h1>Pokemon Card component</h1>
         {/* all React is expecting a "single" thing to return. wrap it in a div */}
 {/* //         {/* {
 //           if this.state is true. (state hasn't been determined) */}
@@ -16,7 +17,7 @@ class PokemonCard extends React.Component {
 //             </p>
 //             <div className='header__progress-bar'>
 //             // progress bar is being informed by the state of the PokemonCard
-//               <Progress-Bar /> */}
+//               <ProgressBar /> */}
 {/* //             </div> */}
 
 {/* //           </header> */}
@@ -24,16 +25,9 @@ class PokemonCard extends React.Component {
       </div>
     )
   }
-}
+// }
 
-// this is all that's needed to get everything above on the webpage. 
-function App() {
-  return (
-    <div className='App'>
-      <PokemonCard />
-    </div>
-  );
-};
+
 
 // allows this to be importable/used in other files
 export default PokemonCard;

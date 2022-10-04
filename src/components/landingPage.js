@@ -1,10 +1,11 @@
 import React from "react";
-import './css/styles.css';
+import '../css/styles.css';
+import { Link } from 'react-router-dom';
 
 class LandingPage extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <header class='page__header'>
           <div class="header__title">
             <h1>Welcome to </h1>
@@ -16,7 +17,11 @@ class LandingPage extends React.Component {
         
           <nav class="header-nav">
             <ul class="header-nav__list">
-              <li><a href="#">See All Pokémon</a></li>
+              <li>
+                <Link to="/pokemonList" aria-current="page">
+                  See All Pokémon
+                </Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -57,12 +62,10 @@ class LandingPage extends React.Component {
           </div>
 
           <button className="start-button" type="button">
-            Let's Battle!
+              Let's Battle!
           </button>
         </article>
-
-        
-      </div>
+      </>
     )
   }
 }
