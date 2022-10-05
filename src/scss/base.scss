@@ -1,156 +1,41 @@
-$pokemongold: #ffdb38;
-$pokemonblue: #1a226b;
-$defaultTransition: all 100ms ease-in-out;
+/*SETTINGS*/
+/* variables, custom properties */
+@import "./settings/variables.scss";
 
-html {
-  color: $pokemongold;
-  background-color: $pokemonblue;
-}
 
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Source Sans Pro', sans-serif;
-}
+/*TOOLS*/
+/*mixins*/
 
-.page__header {
-  // border: 1px solid black;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
 
-  h1 {
-    font-size: 3rem; //48px
-    padding-bottom: 1.5rem; //24px
-  }
-  
-  h2 {
-    font-size: 1.5rem; //24px
-    padding-top: 2.5rem; //40px
-  }
 
-  svg {
-    @media only screen and (min-width: 550px) {
-      scale: 150%;
-    }
+/*GENERIC*/
+/* fonts, reset stylesheets */
 
-    @media only screen and (min-width: 850px) {
-      scale: 200%;
-    }
 
-    @media only screen and (min-width: 1140px) {
-      scale: 250%;
-    }
-  }
-}
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  margin-top: 1rem; //32px
+/*ELEMENTS*/
+/* html element selectors only */
+@import "./elements/elements.scss";
 
-  a {
-    text-decoration: none;
-    transition: $defaultTransition;
-    font-weight: 600;
-    font-size: 1.25rem; //20px
-    color: $pokemongold;
 
-    &:hover {
-      color: #fefefe;
-    }
-  }
-}
+/*LAYOUT/OBJECTS*/
+/*objects, grids, flexbox etc*/
 
-.rules {
-  // border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 1.5rem; //24px
 
-  @media only screen and (min-width: 550px) {
-    margin-top: 2rem; //32px
-  }
 
-  &-flex-container {
-    // border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 100%;
+/*COMPONENTS*/
+/*most of the work goes here! BEM classes, headers/footers/carousels, etc*/
+@import "./components/landingPage.scss";
+@import "./components/startButton.scss";
 
-    @media only screen and (min-width: 680px) {
-      flex-direction: row;
-      justify-content:space-around;
-      align-items: flex-start;
-    }
-  }
 
-  &__before-battle,
-  &__during-battle,
-  &__end-battle {
-    // border: 1px solid red;
-    flex-basis: 33%;
-    padding: 0 0.75rem 0.75rem 0.75rem; //12px
-    text-align: left;
-  }
+/*VENDORS*/
+/*third-party*/
 
-  h4 {
-    // border: 1px solid red;
-    font-size: 1.375rem; //22px
-    margin-top: 0.5rem; //8px
-    margin-bottom: 0;
-  }
 
-  .rules-1, 
-  .rules-2, 
-  .rules-3 {
-    // border: 1px solid red;
-    margin-top: 0.5rem; //8px
-    padding-bottom: 1rem; //16px
-  }
-}
 
-.rules__card {
-  list-style-image: url('../resources/pokeball_list-image.svg');
-
-  li {
-    padding-left: 0.25rem; //4px
-  }
-
-  @media only screen and (min-width: 680px) {
-    li {
-      padding: 0 0 0 0.5rem; //8px
-    }
-  }
-}
-
-button {
-  border: none;
-  background-color: transparent;
-  color: $pokemongold;
-  font-size: 1.625rem; //26px
-  border: 2px solid $pokemongold;
-  padding: 0.75em; //16px
-  border-radius: 3rem; //48px
-  transition: $defaultTransition;
-  position: relative;
-  top: 4rem; //64px
-
-  &:hover {
-    color: white;
-    box-shadow: 4px 0px 4px 4px #00000012;
-    background-color: #EE3918;
-    border: 2px solid white;
-  }
-}
-
+/*UTILITIES*/
+/*one off, hiddens, backgrounds, margin, padding, etc*/
+@import "./utilities/enterView.scss";
 
 
