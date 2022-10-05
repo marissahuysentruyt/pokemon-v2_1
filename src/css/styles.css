@@ -1,3 +1,11 @@
+/*SETTINGS*/
+/* variables, custom properties */
+/*TOOLS*/
+/*mixins*/
+/*GENERIC*/
+/* fonts, reset stylesheets */
+/*ELEMENTS*/
+/* html element selectors only */
 html {
   color: #ffdb38;
   background-color: #1a226b;
@@ -8,9 +16,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 3rem;
+  box-sizing: border-box;
   font-family: "Source Sans Pro", sans-serif;
 }
 
+/*LAYOUT/OBJECTS*/
+/*objects, grids, flexbox etc*/
+/*COMPONENTS*/
+/*most of the work goes here! BEM classes, headers/footers/carousels, etc*/
 .page__header {
   text-align: center;
   display: flex;
@@ -113,8 +127,7 @@ ul a:hover {
   }
 }
 
-button {
-  border: none;
+.start-button {
   background-color: transparent;
   color: #ffdb38;
   font-size: 1.625rem;
@@ -124,12 +137,32 @@ button {
   transition: all 100ms ease-in-out;
   position: relative;
   top: 4rem;
+  cursor: pointer;
 }
-button:hover {
+.start-button:hover {
   color: white;
-  box-shadow: 4px 0px 4px 4px rgba(0, 0, 0, 0.0705882353);
+  box-shadow: 4px 0px 4px 4px rgba(0, 0, 0, 0.1411764706);
   background-color: #EE3918;
   border: 2px solid white;
+}
+
+/*VENDORS*/
+/*third-party*/
+/*UTILITIES*/
+/*one off, hiddens, backgrounds, margin, padding, etc*/
+.enter {
+  border-bottom: 0.25rem solid #EE3918;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #ffdb38;
+  transition: all 100ms ease-in-out;
+  text-decoration: none;
+}
+.enter:hover {
+  color: #fff;
+  font-weight: 700;
+  border-bottom: 0.375rem solid #fff;
 }
 
 /*# sourceMappingURL=styles.css.map */
