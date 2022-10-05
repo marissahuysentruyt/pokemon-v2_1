@@ -1,14 +1,12 @@
 import React from "react";
-// import LandingPage from "./components/landingPage";
+// import './scss/utilities/enterView.scss';
 import { Link } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <Link to="/home">Landing Page</Link> 
-      {/* <LandingPage /> */}
-
-    </>
+    <div>
+      <Link className="enter" to="/home">I choose you!</Link> 
+    </div>
   );
 };
 
