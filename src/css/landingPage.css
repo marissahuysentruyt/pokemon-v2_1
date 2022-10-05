@@ -1,0 +1,103 @@
+.page__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.page__header h1 {
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+}
+.page__header h2 {
+  font-size: 1.5rem;
+  padding-top: 2.5rem;
+}
+@media only screen and (min-width: 550px) {
+  .page__header svg {
+    scale: 150%;
+  }
+}
+@media only screen and (min-width: 850px) {
+  .page__header svg {
+    scale: 200%;
+  }
+}
+@media only screen and (min-width: 1140px) {
+  .page__header svg {
+    scale: 250%;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+}
+ul a {
+  text-decoration: none;
+  transition: all 100ms ease-in-out;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #ffdb38;
+}
+ul a:hover {
+  color: #fefefe;
+}
+
+.rules {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 1.5rem;
+}
+@media only screen and (min-width: 550px) {
+  .rules {
+    margin-top: 2rem;
+  }
+}
+.rules-flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 100%;
+}
+@media only screen and (min-width: 680px) {
+  .rules-flex-container {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+.rules__before-battle, .rules__during-battle, .rules__end-battle {
+  flex-basis: 33%;
+  padding: 0 0.75rem 0.75rem 0.75rem;
+  text-align: left;
+}
+.rules h4 {
+  font-size: 1.375rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+.rules .rules-1,
+.rules .rules-2,
+.rules .rules-3 {
+  margin-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.rules__card {
+  list-style-image: url("../resources/pokeball_list-image.svg");
+}
+.rules__card li {
+  padding-left: 0.25rem;
+}
+@media only screen and (min-width: 680px) {
+  .rules__card li {
+    padding: 0 0 0 0.5rem;
+  }
+}
+
+/*# sourceMappingURL=landingPage.css.map */

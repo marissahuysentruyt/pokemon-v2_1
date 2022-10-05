@@ -1,0 +1,21 @@
+@import "../settings/variables.scss";
+
+.start-button {
+  background-color: transparent;
+  color: $pokemongold;
+  font-size: 1.625rem; //26px
+  border: 2px solid $pokemongold;
+  padding: 0.75em; //16px
+  border-radius: 3rem; //48px
+  transition: $defaultTransition;
+  position: relative;
+  top: 4rem; //64px
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+    box-shadow: 4px 0px 4px 4px #00000024;
+    background-color: $pokeballRed;
+    border: 2px solid white;
+  }
+}

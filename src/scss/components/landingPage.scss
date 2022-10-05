@@ -1,0 +1,119 @@
+@import "../settings/variables.scss";
+
+.page__header {
+  // border: 1px solid black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    font-size: 3rem; //48px
+    padding-bottom: 1.5rem; //24px
+  }
+  
+  h2 {
+    font-size: 1.5rem; //24px
+    padding-top: 2.5rem; //40px
+    // border: 1px solid white;
+  }
+
+  svg {
+    @media only screen and (min-width: 550px) {
+      scale: 150%;
+    }
+
+    @media only screen and (min-width: 850px) {
+      scale: 200%;
+    }
+
+    @media only screen and (min-width: 1140px) {
+      scale: 250%;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem; //32px
+
+  a {
+    text-decoration: none;
+    transition: $defaultTransition;
+    font-weight: 600;
+    font-size: 1.25rem; //20px
+    color: $pokemongold;
+
+    &:hover {
+      color: #fefefe;
+    }
+  }
+}
+
+.rules {
+  // border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 1.5rem; //24px
+
+  @media only screen and (min-width: 550px) {
+    margin-top: 2rem; //32px
+  }
+
+  &-flex-container {
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+
+    @media only screen and (min-width: 680px) {
+      flex-direction: row;
+      justify-content:space-around;
+      align-items: flex-start;
+    }
+  }
+
+  &__before-battle,
+  &__during-battle,
+  &__end-battle {
+    // border: 1px solid red;
+    flex-basis: 33%;
+    padding: 0 0.75rem 0.75rem 0.75rem; //12px
+    text-align: left;
+  }
+
+  h4 {
+    // border: 1px solid red;
+    font-size: 1.375rem; //22px
+    margin-top: 0.5rem; //8px
+    margin-bottom: 0;
+  }
+
+  .rules-1, 
+  .rules-2, 
+  .rules-3 {
+    // border: 1px solid red;
+    margin-top: 0.5rem; //8px
+    padding-bottom: 1rem; //16px
+  }
+}
+
+.rules__card {
+  list-style-image: url('../resources/pokeball_list-image.svg');
+
+  li {
+    padding-left: 0.25rem; //4px
+  }
+
+  @media only screen and (min-width: 680px) {
+    li {
+      padding: 0 0 0 0.5rem; //8px
+    }
+  }
+}
