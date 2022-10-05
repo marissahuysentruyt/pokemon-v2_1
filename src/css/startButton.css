@@ -1,0 +1,20 @@
+.start-button {
+  background-color: transparent;
+  color: #ffdb38;
+  font-size: 1.625rem;
+  border: 2px solid #ffdb38;
+  padding: 0.75em;
+  border-radius: 3rem;
+  transition: all 100ms ease-in-out;
+  position: relative;
+  top: 4rem;
+  cursor: pointer;
+}
+.start-button:hover {
+  color: white;
+  box-shadow: 4px 0px 4px 4px rgba(0, 0, 0, 0.1411764706);
+  background-color: #EE3918;
+  border: 2px solid white;
+}
+
+/*# sourceMappingURL=startButton.css.map */

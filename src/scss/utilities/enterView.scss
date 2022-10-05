@@ -1,0 +1,18 @@
+@import "../settings/variables.scss";
+
+.enter {
+  border-bottom: 0.25rem solid $pokeballRed; //4px
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 3rem; //48px
+  color: $pokemongold;
+  transition: $defaultTransition;
+  text-decoration: none;
+  
+
+  &:hover {
+    color: #fff;
+    font-weight: 700;
+    border-bottom: 0.375rem solid #fff; //6px
+  }
+}
