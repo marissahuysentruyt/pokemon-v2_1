@@ -115,6 +115,10 @@ ul a:hover {
   padding-bottom: 1rem;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .rules__card {
   list-style-image: url("../resources/pokeball_list-image.svg");
 }
