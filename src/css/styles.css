@@ -142,6 +142,7 @@ ul a:hover {
   position: relative;
   top: 4rem;
   cursor: pointer;
+  text-decoration: none;
 }
 .start-button:hover {
   color: white;
