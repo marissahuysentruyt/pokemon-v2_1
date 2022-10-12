@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/pokemonCard.css';
+import '../css/styles.css';
 // import ProgressBar from './progress-bar';
 
 const PokemonCard = () => {
