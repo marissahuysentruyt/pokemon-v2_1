@@ -11,6 +11,9 @@
 # production
 /build
 
+# Compiled CSS
+src/CSS/*.css*
+
 # misc
 .DS_Store
 .env.local
