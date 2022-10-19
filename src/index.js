@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LandingPage from './components/landingPage';
-import PokemonCard from './components/pokemonCard';
-import PokemonList from './components/pokemonList';
-import BattleStart from './components/battleStart';
+import LandingPage from './components/LandingPage';
+import PokemonCard from './components/PokemonCard';
+import PokemonList from './components/PokemonList';
+import BattleStart from './components/BattleStart';
 import App from './App';
 import AppProvider from './AppProvider';
-import BattlePage from './components/battlePage';
+import BattlePage from './components/BattlePage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
