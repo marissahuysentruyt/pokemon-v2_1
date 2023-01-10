@@ -1,7 +1,6 @@
 /*SETTINGS*/
 /* variables, custom properties */
-@import "./settings/variables.scss";
-
+@use "./settings/variables";
 
 /*TOOLS*/
 /*mixins*/
@@ -15,20 +14,19 @@
 
 /*ELEMENTS*/
 /* html element selectors only */
-@import "./elements/elements.scss";
+@use "./elements/elements";
 
 
 /*LAYOUT/OBJECTS*/
 /*objects, grids, flexbox etc*/
-
+@use "./layout/pokemonList.scss";
 
 
 /*COMPONENTS*/
 /*most of the work goes here! BEM classes, headers/footers/carousels, etc*/
-@import "./components/landingPage.scss";
-@import "./components/startButton.scss";
-@import "./components/battleStart";
-@import "./components/app.scss";
+@use "./components/landingPage";
+@use "./components/startButton";
+@use "./components/battleStart";
 
 /*VENDORS*/
 /*third-party*/
@@ -37,6 +35,7 @@
 
 /*UTILITIES*/
 /*one off, hiddens, backgrounds, margin, padding, etc*/
-@import "./utilities/enterView.scss";
+@use "./utilities/enterView";
+@use "./utilities/favoriteHeart";
 
 

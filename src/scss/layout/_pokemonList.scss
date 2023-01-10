@@ -1,0 +1,100 @@
+@import "../settings/variables";
+
+
+.pokemon-list {
+  // border: 1px solid white;
+  width: calc(100vw - 3rem);
+  margin: auto;
+
+  h1 {
+    text-align: center;
+  }
+
+
+  // entire pokemon list
+  .grid-list-all {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+    gap: 1em;
+
+    @media (min-width: 624px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    // list item/pokemon character item
+    .grid-list-all__item {
+      border: 4px solid $pokemongold;
+      padding: 0 2rem;
+      margin: auto;
+      border-radius: 0.5rem;
+      width: 60%;
+      max-width: 300px;
+
+      // ul inside each pokemon character
+      .item-character-info {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        height: inherit;
+        // border: 1px solid white;
+        
+        // image, name & hp list items
+        .item-character-info__sprite {
+          width: 100%;
+
+          img {
+            // border: 1px solid hotpink;
+            margin: auto;
+            width: 100%;
+          }
+        }
+
+        .item-character-info__name {
+          // border: 1px solid red;
+          width: 100%;
+          text-transform: capitalize;
+          display: flex;
+          align-items: center;
+
+          h2 {
+            margin: 0;
+            padding: 0;
+          }
+        }
+        .item-character-info__hp {
+          // border: 1px solid hotpink;
+
+          h3 {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .back-to-top {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: $pokemongold;
+    transition: $defaultTransition;
+
+    &:hover {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 0.25rem;
+    }
+  }
+}

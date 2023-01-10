@@ -4,10 +4,10 @@ const AppContext = React.createContext({});
 const AppProvider = (props) => {
   const [selectedPokemon, setSelectedPokemon] = useState("");
   const [ fetchedPokemon, setFetchedPokemon ] = useState({});
-
+  const [pokemonList, setPokemonList] = useState([]);
 
   return (
-    <AppContext.Provider value={{ selectedPokemon, setSelectedPokemon, fetchedPokemon, setFetchedPokemon }} >
+    <AppContext.Provider value={{ selectedPokemon, setSelectedPokemon, fetchedPokemon, setFetchedPokemon, pokemonList, setPokemonList }} >
       {props.children}
     </AppContext.Provider>
   )

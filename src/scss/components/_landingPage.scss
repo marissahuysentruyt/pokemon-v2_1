@@ -2,22 +2,26 @@
 
 .page__header {
   // border: 1px solid black;
-  text-align: center;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
+  
   h1 {
+    text-align: center;
     font-size: 3rem; //48px
     padding-bottom: 1.5rem; //24px
   }
   
   h2 {
+    text-align: center;
     font-size: 1.5rem; //24px
     padding-top: 2.5rem; //40px
     // border: 1px solid white;
   }
 
   svg {
+    margin: auto;
+    
     @media only screen and (min-width: 550px) {
       scale: 150%;
     }
@@ -32,7 +36,8 @@
   }
 }
 
-ul {
+.header-nav__list {
+  // border: 1px solid red;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -93,6 +98,7 @@ ul {
     font-size: 1.375rem; //22px
     margin-top: 0.5rem; //8px
     margin-bottom: 0;
+    text-align: center;
   }
 
   .rules-1, 
@@ -109,7 +115,7 @@ ul {
 }
 
 .rules__card {
-  list-style-image: url('../resources/pokeball_list-image.svg');
+  list-style-image: url('../../resources/pokeball_list-image.svg');
 
   li {
     padding-left: 0.25rem; //4px
