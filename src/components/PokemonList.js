@@ -1,9 +1,14 @@
-// import React from "react";
+import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
   return (
     <>
-      <h1>Pokemon List will go here</h1>
+      <h1>Original 151 Pokemon</h1>
+      <ul>
+        <li>
+          <PokemonCard />
+        </li>
+      </ul>
     </>
   )
 }
