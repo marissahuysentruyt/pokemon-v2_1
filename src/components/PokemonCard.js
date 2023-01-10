@@ -1,33 +1,34 @@
-import React from 'react';
-// import ProgressBar from './progress-bar';
+import { AppContext } from "../AppProvider";
+import { useCallback, useContext, useEffect } from "react";
+import fetchPokemon from "./fetchPokemon";
 
 const PokemonCard = () => {
-  // render () {
-    return (
-      <div> 
-        <h1>Pokemon Card component</h1>
-        {/* all React is expecting a "single" thing to return. wrap it in a div */}
-{/* //         {/* {
-//           if this.state is true. (state hasn't been determined) */}
-{/* //         <section className='card'>
-//           <header className='card__header'>
-//             <p className='header__name'>
-//               Charizard
-//             </p>
-//             <div className='header__progress-bar'>
-//             // progress bar is being informed by the state of the PokemonCard
-//               <ProgressBar /> */}
-{/* //             </div> */}
+  const numberOfOriginalPokemon = 151;
+  const { fetchedPokemon, setFetchedPokemon } = useContext(AppContext);
 
-{/* //           </header> */}
-{/* //         </section> */}
-      </div>
-    )
-  }
-// }
+  // get all the pokemon available for the game
+  const newFetch = useCallback(async () => {
+    const pokemonArray = [];
+    for(let i = 1; i <= numberOfOriginalPokemon; i++) {
+      const newPokemon = await fetchPokemon(i)
+      pokemonArray.push(newPokemon);
+    }
+    // console.log(pokemonArray);
+    setFetchedPokemon(pokemonArray);
+}, [setFetchedPokemon]);
 
+  useEffect(() => {
+    newFetch();
+  }, [newFetch]);
 
+  return (
+    <div> 
+      <h2>pokemon.name</h2>
+      <h3>pokemon.sprite</h3>
+      <h3>pokemon.moves[0].move.name</h3>
+      <h3>pokemon.stats[0].base_stat HP</h3>
+    </div>
+  )
+}
 
-// allows this to be importable/used in other files
 export default PokemonCard;
-
