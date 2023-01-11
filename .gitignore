@@ -11,8 +11,9 @@
 # production
 /build
 
-# Compiled CSS
+# Styles
 src/CSS/*.css*
+src/scss/components/*.map
 
 # misc
 .DS_Store
@@ -20,6 +21,7 @@ src/CSS/*.css*
 .env.development.local
 .env.test.local
 .env.production.local
+dist/
 
 npm-debug.log*
 yarn-debug.log*
