@@ -2,17 +2,23 @@ import { AppContext } from "../AppProvider";
 import { useContext, useCallback, useEffect } from "react";
 import fetchPokemon from "./fetchPokemon";
 import { HashLink } from "react-router-hash-link";
+// import PokemonCardListItems from "./PokemonCard";
 
 const PokemonList = () => {
   const numberOfOriginalPokemon = 151;
   const { pokemonList, setPokemonList } = useContext(AppContext);
+  // console.log(pokemonList);
 
+    // this is making 151 requests before it renders them. 
+    // is that what we want? intersection observer? pagination?
+    // smaller batches of fetch calls
    // get all the pokemon available for the game
    const getAllPokemon = useCallback(async () => {
     try {
     const pokemonArray = [];
     for(let i = 1; i <= numberOfOriginalPokemon; i++) {
-      const newPokemon = await fetchPokemon(i)
+      const newPokemon = await fetchPokemon(i);
+      // setPokemonList([...pokemonList, newPokemon]);
       pokemonArray.push(newPokemon);
     }
     setPokemonList(pokemonArray);
@@ -50,7 +56,6 @@ const PokemonList = () => {
       </ul>
     </li>
   )
-
   // console.log(pokemonCardListItems);
 
   return (

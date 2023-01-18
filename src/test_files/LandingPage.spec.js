@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import LandingPage from "../components/landingPage";
+import LandingPage from '../components/LandingPage';
 
 describe('LandingPage', () => {
   it('returns a header', () => {
@@ -21,7 +21,7 @@ describe('LandingPage', () => {
     const article = screen.queryByRole('article');
     expect(article).toBeInTheDocument();
   })
-  it('returns lists inside of the article', () => {
+  it('returns 3 lists inside of the article', () => {
     render(
       <MemoryRouter>
         <LandingPage />
@@ -32,5 +32,6 @@ describe('LandingPage', () => {
     expect(rulesList[0]).toBeInTheDocument();
     expect(rulesList[1]).toBeInTheDocument();
     expect(rulesList[2]).toBeInTheDocument();
+    expect(rulesList).toHaveLength(3);
   });
 });
