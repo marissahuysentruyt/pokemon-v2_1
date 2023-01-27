@@ -34,4 +34,16 @@ describe('LandingPage', () => {
     expect(rulesList[2]).toBeInTheDocument();
     expect(rulesList).toHaveLength(3);
   });
+  describe('home button', () => {
+    it('returns a homepage link', () => {
+      render(
+        <MemoryRouter>
+          <LandingPage />
+        </MemoryRouter>
+        );
+      const homeButton = screen.getByRole('link', {name: 'Home'});
+      expect(homeButton).toBeInTheDocument();
+      expect(homeButton).toHaveClass('home-link');
+    });
+  })
 });
