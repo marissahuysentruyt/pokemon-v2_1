@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import HomePageButton from "./HomePageButton";
 
 const LandingPage = () => {
   return (
     <>
+      <HomePageButton />
       <header className='page__header'>
         <div className="header__title">
           <h1>Welcome to </h1>

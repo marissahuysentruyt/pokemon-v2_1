@@ -1,8 +1,8 @@
 @import "../settings/_variables.scss";
 
 html {
-  color: $pokemongold;
-  background-color: $pokemonblue;
+  color: $pokemonGold;
+  background-color: $pokemonBlue;
 }
 
 body {
@@ -12,6 +12,7 @@ body {
   justify-content: center;
   padding: 0;
   margin: 0;
+  margin-top: 1.5rem;
   box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
 }

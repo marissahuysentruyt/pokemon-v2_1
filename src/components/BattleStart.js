@@ -2,6 +2,7 @@ import { AppContext } from '../AppProvider';
 import { useContext, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import fetchPokemon from './fetchPokemon';
+import HomePageButton from './HomePageButton';
 
 export default function BattleStart() {
   const numberOfRandomPokemon = 3; 
@@ -38,6 +39,7 @@ export default function BattleStart() {
 
   return (
     <div>
+      <HomePageButton />
       { selectedPokemon }
       <h1>Choose your Pokémon</h1>
       <form onSubmit={handleSubmit}> 

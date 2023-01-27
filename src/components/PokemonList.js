@@ -2,6 +2,7 @@ import { AppContext } from "../AppProvider";
 import { useContext, useCallback, useEffect } from "react";
 import fetchPokemon from "./fetchPokemon";
 import { HashLink } from "react-router-hash-link";
+import HomePageButton from "./HomePageButton";
 // import PokemonCardListItems from "./PokemonCard";
 
 const PokemonList = () => {
@@ -60,6 +61,7 @@ const PokemonList = () => {
 
   return (
     <>
+      <HomePageButton />
       <section className="pokemon-list">
         <h1 id="to-top-of-list">Original 151 Pokemon</h1>
         <ul className="grid-list-all">

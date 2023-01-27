@@ -1,0 +1,17 @@
+@import "../settings/variables";
+
+.home-link {
+  color: $pokemonGold;
+  transition: $defaultTransition;
+  display: inline-block;
+  max-width: 75rem;
+  margin: auto;
+  font-size: 0.875rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: white;
+    border-bottom: 2px solid #fff;
+  }
+}
