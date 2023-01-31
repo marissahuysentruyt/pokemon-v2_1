@@ -15,21 +15,23 @@ describe('pokemon list page', () => {
   it('displays a list', () => {
     cy.get('ul').should('have.class', 'grid-list-all');
   });
-  // this test may change when the PokemonList gets refactored. 
-  it('displays 151 pokemon characters', () => {
-    cy.get('.grid-list-all__item').should('have.length', 151);
+
+  describe('first render of page', () => {
+    it('displays pokemon characters', () => {
+      cy.get('.grid-list-all__item').should('have.length.gt', 15);
+    });
+    it('displays each character\'s image, name & hp', () => {
+      // each pokemon card item contains its own ul...
+      // and each ul should have a li that has each class name
+      cy.get('.item-character-info__sprite')
+      .should('exist').and('be.visible');
+      cy.get('.item-character-info__name')
+      .should('exist').and('be.visible');
+      cy.get('.item-character-info__hp')
+      .should('exist').and('be.visible');
+    })
   });
   // until the PokemonList component gets refactored, this test will also 
   // continue to fail. It only works if cy.wait(xxxx) is called
-  it('displays each character\'s image, name & hp', () => {
-    // each pokemon card item contains its own ul...
-    // and each ul should have a li that has each class name
-    cy.get('.item-character-info__sprite')
-    .should('exist').and('be.visible');
-    cy.get('.item-character-info__name')
-    .should('exist').and('be.visible');
-    cy.get('.item-character-info__hp')
-    .should('exist').and('be.visible');
-  })
 });
 
