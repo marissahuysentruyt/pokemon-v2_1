@@ -1,38 +1,50 @@
 import { AppContext } from "../AppProvider";
-import { useContext, useCallback, useEffect } from "react";
+import { useContext, useCallback, useEffect, useState } from "react";
 import fetchPokemon from "./fetchPokemon";
 import { HashLink } from "react-router-hash-link";
 import HomePageButton from "./HomePageButton";
 // import PokemonCardListItems from "./PokemonCard";
 
 const PokemonList = () => {
-  const numberOfOriginalPokemon = 151;
+  // const numberOfOriginalPokemon = 151;
   const { pokemonList, setPokemonList } = useContext(AppContext);
-  // console.log(pokemonList);
+  const [ indexNumber, setIndexNumber ] = useState(0);
+  const [ limitNumber, setLimitNumber ] = useState(20);
 
-    // this is making 151 requests before it renders them. 
-    // is that what we want? intersection observer? pagination?
-    // smaller batches of fetch calls
-   // get all the pokemon available for the game
-   const getAllPokemon = useCallback(async () => {
+  const updateIndexState = (indexNumber) => {
+      // setLimitNumber(limitNumber + 20);
+      if(indexNumber < 140) {
+        setIndexNumber(indexNumber + 20);
+      } else if (indexNumber === 140) {
+        setIndexNumber(indexNumber + 10)
+        // setLimitNumber(11);
+      } else {
+        console.log('That\'s all our Pokemon!');
+      }
+  };
+  console.log(limitNumber, indexNumber);
+
+  const getBatchOfPokemon = useCallback(async (limitOfCharactersToCall, offsetIndexNumber) => {
     try {
-    const pokemonArray = [];
-    for(let i = 1; i <= numberOfOriginalPokemon; i++) {
-      const newPokemon = await fetchPokemon(i);
-      // setPokemonList([...pokemonList, newPokemon]);
-      pokemonArray.push(newPokemon);
-    }
-    setPokemonList(pokemonArray);
+      const pokemonArray = [];
+      for(let i = offsetIndexNumber + 1; i <= (offsetIndexNumber + limitOfCharactersToCall); i++) {
+        const newPokemon = await fetchPokemon(i);
+        pokemonArray.push(newPokemon);
+        setPokemonList(pokemonArray);
+        // console.log(pokemonList);
+      }
     }
     catch (e) {
       console.log('something went wrong');
     }
-
   }, [setPokemonList]);
 
+  // getBatchOfPokemon(limitNumber, indexNumber);
+
   useEffect(() => {
-    getAllPokemon();
-  }, [getAllPokemon]);
+    getBatchOfPokemon(limitNumber, indexNumber);
+    console.log(indexNumber, 'index changed');
+  }, [getBatchOfPokemon, indexNumber]); 
 
   const pokemonCardListItems = pokemonList.map((pokemon) =>
     <li key={pokemon?.id} className="grid-list-all__item">
@@ -58,7 +70,7 @@ const PokemonList = () => {
     </li>
   )
   // console.log(pokemonCardListItems);
-
+  
   return (
     <>
       <HomePageButton />
@@ -67,11 +79,11 @@ const PokemonList = () => {
         <ul className="grid-list-all">
           {pokemonCardListItems}
         </ul>
-
+        <button type="button" onClick={() => updateIndexState(indexNumber)}>See More Pokemon</button>
         <HashLink to="#to-top-of-list" className="back-to-top">☝️ Back to Top</HashLink>
       </section>
     </>
-  )
+  ) 
 }
 
 export default PokemonList;
