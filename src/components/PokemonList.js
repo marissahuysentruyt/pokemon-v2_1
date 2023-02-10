@@ -3,48 +3,69 @@ import { useContext, useCallback, useEffect, useState } from "react";
 import fetchPokemon from "./fetchPokemon";
 import { HashLink } from "react-router-hash-link";
 import HomePageButton from "./HomePageButton";
-// import PokemonCardListItems from "./PokemonCard";
 
 const PokemonList = () => {
-  // const numberOfOriginalPokemon = 151;
   const { pokemonList, setPokemonList } = useContext(AppContext);
   const [ indexNumber, setIndexNumber ] = useState(0);
   const [ limitNumber, setLimitNumber ] = useState(20);
 
   const updateIndexState = (indexNumber) => {
-      // setLimitNumber(limitNumber + 20);
       if(indexNumber < 140) {
         setIndexNumber(indexNumber + 20);
+        // getABatchOfPokemon(limitNumber, indexNumber)
       } else if (indexNumber === 140) {
-        setIndexNumber(indexNumber + 10)
-        // setLimitNumber(11);
+        setIndexNumber(indexNumber + 11)
+        setLimitNumber(11)
+        // getABatchOfPokemon(limitNumber, indexNumber)
       } else {
-        console.log('That\'s all our Pokemon!');
+        alert('That\'s all our Pokemon!');
       }
   };
-  console.log(limitNumber, indexNumber);
 
-  const getBatchOfPokemon = useCallback(async (limitOfCharactersToCall, offsetIndexNumber) => {
+  const getABatchOfPokemon = useCallback(async (limitOfCharactersToCall, offsetIndexNumber) => {
     try {
-      const pokemonArray = [];
+      // const pokemonArray = [];
       for(let i = offsetIndexNumber + 1; i <= (offsetIndexNumber + limitOfCharactersToCall); i++) {
         const newPokemon = await fetchPokemon(i);
-        pokemonArray.push(newPokemon);
-        setPokemonList(pokemonArray);
-        // console.log(pokemonList);
+        // pokemonArray.push(newPokemon);
+        setPokemonList([...pokemonList, newPokemon]);
       }
+
     }
     catch (e) {
       console.log('something went wrong');
+      return (
+        <>
+          <div>Something went wrong!</div>
+        </>
+      )
     }
   }, [setPokemonList]);
 
-  // getBatchOfPokemon(limitNumber, indexNumber);
+  const addNextBatchOfPokemon = async (limitOfCharactersToCall, offsetIndexNumber) => {
+    console.log('created a new batch');
+    updateIndexState(indexNumber);
+      try {
+        const pokemonArray = [];
+        for(let i = offsetIndexNumber + 1; i <= (offsetIndexNumber + limitOfCharactersToCall); i++) {
+          const newPokemon = await fetchPokemon(i);
+          pokemonArray.push(newPokemon);
+          setPokemonList([...pokemonList, pokemonArray]);
+        }
 
-  useEffect(() => {
-    getBatchOfPokemon(limitNumber, indexNumber);
-    console.log(indexNumber, 'index changed');
-  }, [getBatchOfPokemon, indexNumber]); 
+        let firstBatchList = document.querySelector('ul');
+        let newBatchList = document.createElement('ul')
+        newBatchList.classList.add('grid-list-all');
+        // console.log(newBatchList)
+        newBatchList.innerHTML = {pokemonCardListItems}
+        firstBatchList.append(newBatchList);
+      }
+      catch {
+        console.log('something went wrong');
+      }
+  }
+
+  console.log(pokemonList);
 
   const pokemonCardListItems = pokemonList.map((pokemon) =>
     <li key={pokemon?.id} className="grid-list-all__item">
@@ -69,7 +90,12 @@ const PokemonList = () => {
       </ul>
     </li>
   )
-  // console.log(pokemonCardListItems);
+
+  useEffect(() => {
+    getABatchOfPokemon(limitNumber, indexNumber);
+    console.log(limitNumber, indexNumber)
+
+  }, [getABatchOfPokemon, indexNumber, limitNumber]); 
   
   return (
     <>
@@ -79,7 +105,9 @@ const PokemonList = () => {
         <ul className="grid-list-all">
           {pokemonCardListItems}
         </ul>
-        <button type="button" onClick={() => updateIndexState(indexNumber)}>See More Pokemon</button>
+        <button type="button" onClick={() => addNextBatchOfPokemon()}>
+          See More Pokemon
+        </button>
         <HashLink to="#to-top-of-list" className="back-to-top">☝️ Back to Top</HashLink>
       </section>
     </>
