@@ -1,7 +1,7 @@
 import { AppContext } from '../AppProvider';
 import { useContext, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import fetchPokemon from './fetchPokemon';
+import { GetOnePokemon } from './fetchPokemon';
 import HomePageButton from './HomePageButton';
 
 export default function BattleStart() {
@@ -17,7 +17,7 @@ export default function BattleStart() {
     const pokemonArray = [];
     for(let i = 0; i < numberOfRandomPokemon; i++) {
       let pokemonId = Math.round(Math.random() * 151);
-      const newPokemon = await fetchPokemon(pokemonId)
+      const newPokemon = await GetOnePokemon(pokemonId)
       pokemonArray.push(newPokemon);
       // console.log(pokemonArray, i, 'for loop');
     }
