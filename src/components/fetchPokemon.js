@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export const GetOnePokemon = async (pokemonId) => {
   try {
     const fetchedPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);

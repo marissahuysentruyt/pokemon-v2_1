@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { AppContext } from '../AppProvider';
+// import { useContext } from 'react';
+// import { AppContext } from '../AppProvider';
 
 const PokemonCardListItems = () => {
   // const { pokemonList } = useContext(AppContext);

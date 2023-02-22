@@ -1,23 +1,36 @@
 import { useState } from "react";
-import { HashLink } from "react-router-hash-link";
 
+// is it { pokemonList }, (pokemonList), or ...props? 
 export const PokemonListItems = ({ pokemonList }) => {
-  // const {pokemonList} = useState([]);
-  console.log(pokemonList);
+  const [ pokemonPromiseResults, setPokemonPromiseResults ] = useState([]);
+
+  const pokemonPromise = Promise.resolve(pokemonList);
+  
+  async function pokemonMap() {
+    try {
+      const pokemonResults = await pokemonPromise;
+      // console.log(pokemonResults, 'inside pokemonMap');
+      setPokemonPromiseResults(pokemonResults);
+      return pokemonResults;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  pokemonMap();
+  // console.log(pokemonPromiseResults, 'outside pokemonMap');
 
   return (
-    <section className="pokemon-list">
-      <h1 id="to-top-of-list">Original 151 Pokemon</h1>
-      <ul className="grid-list-all">
-       {/* pokemonList.map((pokemon) => (
-         <li key={pokemon.id} className="grid-list-all__item">
-       <ul className="item-character-info">*/}
-             {/* <li className="item-character-info__sprite">
-               <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-             </li> */}
-             {/*<li className="item-character-info__name">
-               <h2>{pokemon.name}</h2>
-               <button
+    <>
+      {pokemonPromiseResults.map((pokemon) => (
+        <li key={pokemon.id} className="grid-list-all__item">
+          <ul className="item-character-info">
+            <li className="item-character-info__sprite">
+              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            </li> 
+            <li className="item-character-info__name">
+              <h2>{pokemon.name}</h2>
+              <button
                  type="button"
                  className="item-character-info__favorite"
                  id="heart"
@@ -42,13 +55,7 @@ export const PokemonListItems = ({ pokemonList }) => {
             </li>
           </ul>
         </li>
-      ) 
-            )*/}
-      </ul>
-      <button type="button" onClick={() => console.log('button clicked')}>
-      See More Pokemon
-    </button>
-      <HashLink to="#to-top-of-list" className="back-to-top">☝️ Back to Top</HashLink>
-    </section>
+      ))}
+    </>
   )
 }
