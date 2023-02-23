@@ -16,8 +16,8 @@ describe('pokemon list page', () => {
     cy.get('ul').should('have.class', 'grid-list-all');
   });
   // this test may change when the PokemonList gets refactored. 
-  it('displays 151 pokemon characters', () => {
-    cy.get('.grid-list-all__item').should('have.length', 151);
+  it('displays 12 pokemon characters', () => {
+    cy.get('.grid-list-all__item').should('have.length', 12);
   });
   // until the PokemonList component gets refactored, this test will also 
   // continue to fail. It only works if cy.wait(xxxx) is called
@@ -30,6 +30,12 @@ describe('pokemon list page', () => {
     .should('exist').and('be.visible');
     cy.get('.item-character-info__hp')
     .should('exist').and('be.visible');
+  });
+  it("the next & previous buttons should still display 12 pokemon", () => {
+    cy.get('.pokemon-list__next-button').click();
+    cy.get('.grid-list-all__item').should('have.length', 12);
+    cy.get('.pokemon-list__previous-button').click();
+    cy.get('.grid-list-all__item').should('have.length', 12);
   })
 });
 
