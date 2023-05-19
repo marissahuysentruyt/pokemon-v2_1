@@ -1,7 +1,79 @@
 @import '../settings/variables';
 @import '../components/startButton';
 
+.title {
+  font-size: 3rem;
+  // border: 1px solid red;
+  text-align: center;
+}
+
+.selection__wrapper {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  // border: 1px solid red;
+}
+
+.selection__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  // border: 1px solid white;
+  height: 100%;
+
+  @media (min-width: 40rem) {
+    max-width: 75rem;
+    align-self: center;
+  }
+
+  .input-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & input[type="radio"] {
+      appearance: none;
+    }
+  }
+
+  .input-column {
+    gap: 2rem;
+    max-height: 100%;
+
+    .input-image {
+      // border: 1px solid red;
+      max-width: 14rem;
+      height: auto;
+      margin: auto;
+    }
+
+    @media (min-width: 40rem) {
+      flex-direction: row;
+    }
+  }
+}
+
 .enter-battle {
-  display: inline-block;
-  margin: auto;
+  background-color: transparent;
+  color: $pokemonGold;
+  font-size: 1.625rem; //26px
+  border: 2px solid $pokemonGold;
+  padding: 0.75em; //16px
+  border-radius: 3rem; //48px
+  transition: $defaultTransition;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+    box-shadow: 4px 0px 4px 4px #00000024;
+    background-color: $pokeballRed;
+    border: 2px solid white;
+  }
 }
