@@ -6,13 +6,19 @@ const BattlePage = () => {
 
   const { selectedPokemon } = useContext(AppContext);
 
-  return (
+  return selectedPokemon ? (
     <div>
       <HomePageButton />
       <h1>Defeat your opponent!</h1> 
-      { selectedPokemon }
+      { selectedPokemon.name }
+      <img src={ selectedPokemon.sprites.front_default } alt={selectedPokemon.name} />
     </div>
-  )
+  ) : 
+    <div>
+      <HomePageButton />
+      <h1>Defeat your opponent!</h1>  
+      <p>Did you select a pokemon yet?</p> 
+    </div>
 }
 
 export default BattlePage;
