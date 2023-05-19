@@ -16,3 +16,10 @@ body {
   box-sizing: border-box;
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
