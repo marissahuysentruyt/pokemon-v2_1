@@ -1,0 +1,13 @@
+.featured {
+  // border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 75rem;
+  margin: auto;
+
+  &__image {
+    width: 20rem;
+    height: auto;
+  }
+}
