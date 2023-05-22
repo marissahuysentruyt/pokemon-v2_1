@@ -43,6 +43,7 @@
     "@testing-library/cypress": "^9.0.0",
     "cypress": "^12.4.1",
     "react-context": "^0.0.3",
+    "react-test-renderer": "^18.2.0",
     "sass": "^1.57.1"
   }
 }
