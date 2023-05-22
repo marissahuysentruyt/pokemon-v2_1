@@ -1,6 +1,15 @@
-// import { render } from "@testing-library/react";
-// import BattleStart from "../components/BattleStart";
+import { render, screen} from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import BattleStart from "../components/BattleStart";
 
 describe('Battle Start', () => {
-  it.todo('random pokemon are generated here')
+  it('returns a header', () => {
+    render(
+      <MemoryRouter>
+        <BattleStart />
+      </MemoryRouter>
+      );
+    const header = screen.getByText('Choose Your Pokemon');
+    expect(header).toBeInTheDocument();
+  });
 });
