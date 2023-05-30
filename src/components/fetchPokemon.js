@@ -1,8 +1,10 @@
+import axios from 'axios';
+
 export const GetOnePokemon = async (pokemonId) => {
   try {
-    const fetchedPokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
-    const pokemonResponse = await fetchedPokemon.json();
-    // console.log(pokemonResponse.name);
+    const fetchedPokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+    const pokemonResponse = fetchedPokemon.data;
+    // console.log(pokemonResponse, 'from fetch file');
     return pokemonResponse;
   }
   catch (e) {
