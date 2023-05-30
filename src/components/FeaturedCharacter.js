@@ -1,13 +1,17 @@
-import React from "react"
+import React from "react";
+
 const FeaturedCharacter = ({children}) => {
   return (
     <>
-      {React.Children.map(children, child => {
-        if(React.isValidElement(child)) {
-          return React.cloneElement(child);
-        }
-        return child;
-      })}
+      <div className="featured">
+        {React.Children.map(children, child => {
+          if(React.isValidElement(child)) {
+            return React.cloneElement(child);
+          }
+          return child;
+        })}
+      </div>
+      
     </>
   )
 }
