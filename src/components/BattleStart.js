@@ -42,21 +42,21 @@ export default function BattleStart() {
           {/* Each of the generated Pokemon's name get passed to these inputs */}
           <div className='input-column'>
             <div className="selection__form-input-wrapper">
-              <label className="input-item">
+              <label className="input-item capitalize">
                 <input type="radio" name="pokemon-choices" value={fetchedPokemon[0]?.name} onChange={() => setSelectedPokemon(fetchedPokemon[0])}/>
                 {fetchedPokemon[0]?.name}
                 <img className="input-image" src={fetchedPokemon[0]?.sprites.front_default} alt={fetchedPokemon[0]?.name} />
               </label>
             </div>
             <div className="selection__form-input-wrapper">
-              <label className="input-item">
+              <label className="input-item capitalize">
                 <input type="radio" name="pokemon-choices" value={fetchedPokemon[1]?.name} onChange={() => setSelectedPokemon(fetchedPokemon[1])}/>
                 {fetchedPokemon[1]?.name}
                 <img className="input-image" src={fetchedPokemon[1]?.sprites.front_default} alt={fetchedPokemon[1]?.name} />
               </label>
             </div>
             <div className="selection__form-input-wrapper">
-              <label className="input-item">
+              <label className="input-item capitalize">
                 <input type="radio" name="pokemon-choices" value={fetchedPokemon[2]?.name} onChange={() => setSelectedPokemon(fetchedPokemon[2])}/>
                 {fetchedPokemon[2]?.name}
                 <img className="input-image" src={fetchedPokemon[2]?.sprites.front_default} alt={fetchedPokemon[2]?.name} />
@@ -68,10 +68,8 @@ export default function BattleStart() {
             <>
               <p>You've chosen:</p>
               <FeaturedCharacter>
-                <div className="featured">
-                  <h2>{selectedPokemon.name}</h2>
-                  <img className="featured__image"src={selectedPokemon.sprites.front_default} alt={selectedPokemon.name} />
-                </div>
+                <h2 className="capitalize">{selectedPokemon.name}</h2>
+                <img className="featured__image" src={selectedPokemon.sprites.front_default} alt={selectedPokemon.name} />
               </FeaturedCharacter>
             </>
           }
