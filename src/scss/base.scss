@@ -29,7 +29,7 @@
 @use "./components/battleStart";
 @use "./components/homePageButton";
 @use "./components/pokemonListButtons";
-@use "./components/components.featured-character";
+@use "./components/featured-character";
 
 /*VENDORS*/
 /*third-party*/
@@ -40,5 +40,6 @@
 /*one off, hiddens, backgrounds, margin, padding, etc*/
 @use "./utilities/enterView";
 @use "./utilities/favoriteHeart";
-
+@use "./utilities/capitalize";
+@use "./utilities/subtitle";
 
