@@ -9,6 +9,7 @@ import BattleStart from './components/BattleStart';
 import App from './App';
 import AppProvider from './AppProvider';
 import BattlePage from './components/BattlePage';
+import Game from "./components/Game";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,6 +25,7 @@ root.render(
           <Route path="/pokemonList" element={<PokemonList />} />
           <Route path="/battleStart" element={<BattleStart />} />
           <Route path="/battlePage" element={<BattlePage />} />
+          <Route path="/game" element={<Game />} />
       </Routes>
     </BrowserRouter>
     </AppProvider>
