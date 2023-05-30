@@ -1,0 +1,25 @@
+@use "../settings/variables" as colors;
+
+.begin-battle-button {
+  background-color: transparent;
+  color: colors.$pokemonGold;
+  font-size: 1.625rem; //26px
+  border: 2px solid colors.$pokemonGold;
+  padding: 0.75em; //16px
+  border-radius: 3rem; //48px
+  transition: colors.$defaultTransition;
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 100%;
+  margin: 0 1.25rem;
+  text-align: center;
+  display: flex;
+  align-self: center;
+
+  &:hover {
+    color: white;
+    box-shadow: 4px 0px 4px 4px #00000024;
+    background-color: colors.$pokeballRed;
+    border: 2px solid white;
+  }
+}
