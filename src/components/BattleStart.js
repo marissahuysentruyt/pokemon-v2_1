@@ -1,5 +1,5 @@
 import { AppContext } from '../AppProvider';
-import { useContext, useEffect, useCallback } from 'react';
+import { useContext, useEffect, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GetOnePokemon } from './fetchPokemon';
 import HomePageButton from './HomePageButton';
@@ -8,6 +8,7 @@ import FeaturedCharacter from './FeaturedCharacter';
 export default function BattleStart() {
   const numberOfRandomPokemon = 3; 
   const { selectedPokemon, setSelectedPokemon, fetchedPokemon, setFetchedPokemon } = useContext(AppContext);
+  const [refetching, setRefetching] = useState(false);  
   
 // fetchPokemon function 3 times for 3 random pokemon, push those results (setFetchedPokemon) into the empty array
   const newFetch = useCallback(async () => {
@@ -31,6 +32,10 @@ export default function BattleStart() {
     e.preventDefault();
     if(!selectedPokemon) return false;
     navigate('/battlePage');
+  }
+
+  const handleRefetch = async () => {
+    await newFetch();
   }
 
   return (
@@ -74,11 +79,15 @@ export default function BattleStart() {
             </>
           }
 
+          <div className="button-container">
+          <button type="button" className="begin-battle-button" onClick={() => 
+              handleRefetch()}>Get New Pokemon</button>
           <button type="submit" className="enter-battle"
             onClick={() => {
               if(!selectedPokemon) {alert("make sure to select a pokemon!")}
             }}
-          >Start Battle</button> 
+          >Start Battle</button>          
+          </div>
         </form>
       </section>
     </div>
