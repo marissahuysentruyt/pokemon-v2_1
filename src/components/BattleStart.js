@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GetOnePokemon } from './fetchPokemon';
 import HomePageButton from './HomePageButton';
 import FeaturedCharacter from './FeaturedCharacter';
+import PokemonCard from './PokemonCard';
 
 export default function BattleStart() {
   const numberOfRandomPokemon = 3; 
@@ -46,27 +47,17 @@ export default function BattleStart() {
         <form className="selection__form" onSubmit={handleSubmit}> 
           {/* Each of the generated Pokemon's name get passed to these inputs */}
           <div className='input-column'>
-            <div className="selection__form-input-wrapper">
-              <label className="input-item capitalize">
-                <input type="radio" name="pokemon-choices" value={fetchedPokemon[0]?.name} onChange={() => setSelectedPokemon(fetchedPokemon[0])}/>
-                {fetchedPokemon[0]?.name}
-                <img className="input-image" src={fetchedPokemon[0]?.sprites.front_default} alt={fetchedPokemon[0]?.name} />
-              </label>
-            </div>
-            <div className="selection__form-input-wrapper">
-              <label className="input-item capitalize">
-                <input type="radio" name="pokemon-choices" value={fetchedPokemon[1]?.name} onChange={() => setSelectedPokemon(fetchedPokemon[1])}/>
-                {fetchedPokemon[1]?.name}
-                <img className="input-image" src={fetchedPokemon[1]?.sprites.front_default} alt={fetchedPokemon[1]?.name} />
-              </label>
-            </div>
-            <div className="selection__form-input-wrapper">
-              <label className="input-item capitalize">
-                <input type="radio" name="pokemon-choices" value={fetchedPokemon[2]?.name} onChange={() => setSelectedPokemon(fetchedPokemon[2])}/>
-                {fetchedPokemon[2]?.name}
-                <img className="input-image" src={fetchedPokemon[2]?.sprites.front_default} alt={fetchedPokemon[2]?.name} />
-              </label>
-            </div>
+              {fetchedPokemon.map((pokemon) => (
+                <div 
+                  key={pokemon.id} 
+                  className="selection__form-input-wrapper">
+                  <PokemonCard 
+                    pokemon={pokemon} 
+                    name="pokemon-choices" 
+                    onSelect={() => setSelectedPokemon(pokemon)}
+                  />
+                </div>
+              ))}
           </div>
 
           {selectedPokemon &&
