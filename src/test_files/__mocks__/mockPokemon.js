@@ -3,7 +3,7 @@ const pokemonListCharacters = {
     id: 2, 
     name: 'first pokemon', 
     sprites: {
-      front_default: 'not right now'
+      front_default: '../../../public/favicon.ico'
     },
     base_experience: 50
   },
@@ -11,7 +11,7 @@ const pokemonListCharacters = {
     id: 4, 
     name: 'second pokemon', 
     sprites: {
-      front_default: 'not right now'
+      front_default: '../../../public/favicon.ico'
     },
     base_experience: 100
   },
@@ -19,7 +19,7 @@ const pokemonListCharacters = {
     id: 6, 
     name: 'third pokemon', 
     sprites: {
-      front_default: 'not right now'
+      front_default: '../../../public/favicon.ico'
     },
     base_experience: 150
   },
@@ -27,7 +27,7 @@ const pokemonListCharacters = {
     id: 8, 
     name: 'fourth pokemon', 
     sprites: {
-      front_default: 'not right now'
+      front_default: '../../../public/favicon.ico'
     },
     base_experience: 200
   }
